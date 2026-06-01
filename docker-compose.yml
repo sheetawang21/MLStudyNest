@@ -1,0 +1,47 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: mlstudynest
+      MYSQL_USER: mlsn
+      MYSQL_PASSWORD: mlsn_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot_password --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: mysql://mlsn:mlsn_password@mysql:3306/mlstudynest
+      BIND_ADDR: 0.0.0.0:8080
+      COOKIE_SECURE: "false"
+      RUST_LOG: info
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      NUXT_RUST_API_BASE: http://backend:8080
+      RUST_API_URL: http://backend:8080
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysql-data:

@@ -1,0 +1,33 @@
+FROM debian:bookworm AS build
+ARG RUST_VERSION=1.96.0
+ARG RUST_TARGET=x86_64-unknown-linux-gnu
+ENV CARGO_HOME=/usr/local/cargo \
+    RUSTUP_HOME=/usr/local/rustup \
+    PATH=/usr/local/cargo/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WORKDIR /app
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends ca-certificates curl xz-utils build-essential pkg-config perl; \
+    rm -rf /var/lib/apt/lists/*; \
+    curl -fsSL "https://static.rust-lang.org/dist/rust-${RUST_VERSION}-${RUST_TARGET}.tar.xz" -o /tmp/rust.tar.xz; \
+    mkdir -p /tmp/rust; \
+    tar -xJf /tmp/rust.tar.xz -C /tmp/rust --strip-components=1; \
+    /tmp/rust/install.sh --prefix=/usr/local --disable-ldconfig; \
+    rm -rf /tmp/rust /tmp/rust.tar.xz; \
+    cargo --version; \
+    rustc --version
+COPY Cargo.toml Cargo.lock* ./
+COPY src ./src
+COPY migrations ./migrations
+RUN set -eux; \
+    cargo metadata --format-version=1 --no-deps; \
+    cargo build --locked --release --bin mlstudynest-api; \
+    test -x target/release/mlstudynest-api; \
+    install -Dm755 target/release/mlstudynest-api /out/mlstudynest-api
+
+FROM debian:bookworm-slim AS runtime
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY --from=build /out/mlstudynest-api /usr/local/bin/mlstudynest-api
+EXPOSE 8080
+CMD ["/usr/local/bin/mlstudynest-api"]

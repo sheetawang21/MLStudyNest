@@ -1,0 +1,97 @@
+<svg width="400" height="240" viewBox="60 70 560 270" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>ML StudyNest Logo</title>
+<desc>行星风格logo，西太后配色</desc>
+
+<style>
+  @media (prefers-color-scheme: dark) {
+    .bg-ring { stroke: #6b4fa0; }
+    .logo-text { fill: #e8d5f5; }
+    .sub-text { fill: #b89fd4; }
+    .ml-text { fill: #f0e6ff; }
+  }
+  .bg-ring { stroke: #9b6bc4; }
+  .logo-text { fill: #3d1a6b; }
+  .sub-text { fill: #7a4fa8; }
+  .ml-text { fill: #faf0ff; }
+</style>
+
+<defs>
+  <radialGradient id="planet-grad" cx="40%" cy="35%" r="60%">
+    <stop offset="0%" stop-color="#e8b4d8"/>
+    <stop offset="40%" stop-color="#c97fc2"/>
+    <stop offset="100%" stop-color="#7c3fa0"/>
+  </radialGradient>
+  <radialGradient id="moon-grad" cx="35%" cy="30%" r="60%">
+    <stop offset="0%" stop-color="#fde8c0"/>
+    <stop offset="100%" stop-color="#e8a84a"/>
+  </radialGradient>
+  <radialGradient id="mini-moon-grad" cx="35%" cy="30%" r="60%">
+    <stop offset="0%" stop-color="#b8e8f0"/>
+    <stop offset="100%" stop-color="#5ab8d4"/>
+  </radialGradient>
+  <clipPath id="planet-clip">
+    <circle cx="248" cy="195" r="88"/>
+  </clipPath>
+</defs>
+
+<circle cx="108" cy="80" r="3" fill="#f5c8e8" opacity="0.9"/>
+<circle cx="390" cy="65" r="2" fill="#d4a8e8" opacity="0.8"/>
+<circle cx="420" cy="110" r="3.5" fill="#fde8c0" opacity="0.85"/>
+<circle cx="90" cy="150" r="2" fill="#b8e8f0" opacity="0.7"/>
+<circle cx="400" cy="290" r="2.5" fill="#f5c8e8" opacity="0.8"/>
+<circle cx="130" cy="310" r="2" fill="#d4c8f8" opacity="0.7"/>
+<circle cx="380" cy="160" r="2" fill="#c8f0d8" opacity="0.75"/>
+
+<ellipse cx="248" cy="195" rx="140" ry="38" fill="none" class="bg-ring" stroke-width="2.5" stroke-dasharray="8 4" opacity="0.6" transform="rotate(-18,248,195)"/>
+
+<circle cx="248" cy="195" r="88" fill="#7c3fa0" opacity="0.25"/>
+<circle cx="248" cy="195" r="88" fill="url(#planet-grad)"/>
+
+<ellipse cx="248" cy="210" rx="82" ry="18" fill="#b96ab8" opacity="0.25" clip-path="url(#planet-clip)"/>
+<ellipse cx="248" cy="240" rx="75" ry="14" fill="#9a4fa8" opacity="0.2" clip-path="url(#planet-clip)"/>
+<ellipse cx="248" cy="175" rx="70" ry="10" fill="#d898d0" opacity="0.22" clip-path="url(#planet-clip)"/>
+
+<ellipse cx="215" cy="162" rx="22" ry="14" fill="#f0d0ee" opacity="0.45"/>
+<ellipse cx="208" cy="158" rx="8" ry="5" fill="white" opacity="0.35"/>
+
+<circle cx="278" cy="215" r="9" fill="#8a3898" opacity="0.35"/>
+<circle cx="275" cy="212" r="3" fill="#c890c8" opacity="0.4"/>
+
+<rect x="226" y="184" width="46" height="32" rx="3" fill="#5a2080" opacity="0.7"/>
+<rect x="226" y="184" width="23" height="32" rx="2" fill="#6a2890" opacity="0.8"/>
+<line x1="249" y1="185" x2="249" y2="215" stroke="#f0d8f8" stroke-width="1.5" opacity="0.9"/>
+<line x1="232" y1="192" x2="245" y2="192" stroke="#c8a8e0" stroke-width="1" opacity="0.7"/>
+<line x1="232" y1="198" x2="245" y2="198" stroke="#c8a8e0" stroke-width="1" opacity="0.7"/>
+<line x1="232" y1="204" x2="245" y2="204" stroke="#c8a8e0" stroke-width="1" opacity="0.7"/>
+<line x1="253" y1="192" x2="266" y2="192" stroke="#c8a8e0" stroke-width="1" opacity="0.7"/>
+<line x1="253" y1="198" x2="266" y2="198" stroke="#c8a8e0" stroke-width="1" opacity="0.7"/>
+
+<circle cx="355" cy="148" r="22" fill="url(#moon-grad)"/>
+<ellipse cx="346" cy="142" rx="7" ry="5" fill="#fdf8e8" opacity="0.4"/>
+<circle cx="360" cy="154" r="4" fill="#d49038" opacity="0.3"/>
+
+<circle cx="142" cy="238" r="14" fill="url(#mini-moon-grad)"/>
+<ellipse cx="137" cy="233" rx="4" ry="3" fill="white" opacity="0.35"/>
+
+<g transform="translate(318, 225)">
+  <line x1="0" y1="-6" x2="0" y2="6" stroke="#e8c8f0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="-6" y1="0" x2="6" y2="0" stroke="#e8c8f0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="-4" y1="-4" x2="4" y2="4" stroke="#e8c8f0" stroke-width="1" stroke-linecap="round"/>
+  <line x1="4" y1="-4" x2="-4" y2="4" stroke="#e8c8f0" stroke-width="1" stroke-linecap="round"/>
+</g>
+<g transform="translate(168, 148)">
+  <line x1="0" y1="-5" x2="0" y2="5" stroke="#fde8c0" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="-5" y1="0" x2="5" y2="0" stroke="#fde8c0" stroke-width="1.5" stroke-linecap="round"/>
+</g>
+
+<rect x="168" y="108" width="44" height="26" rx="8" fill="#7c3fa0"/>
+<text x="190" y="126" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" class="ml-text">ML</text>
+
+<text x="420" y="180" text-anchor="middle" font-family="sans-serif" font-size="36" font-weight="700" class="logo-text" letter-spacing="0.5">StudyNest</text>
+<line x1="365" y1="193" x2="475" y2="193" stroke="#c090d8" stroke-width="1.5" opacity="0.6"/>
+<text x="420" y="216" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="400" class="sub-text" letter-spacing="1.5">machine learning</text>
+
+<circle cx="394" cy="232" r="2.5" fill="#d4a8e8" opacity="0.7"/>
+<circle cx="420" cy="232" r="2.5" fill="#c890c8" opacity="0.7"/>
+<circle cx="446" cy="232" r="2.5" fill="#d4a8e8" opacity="0.7"/>
+</svg>
